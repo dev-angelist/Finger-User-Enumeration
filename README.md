@@ -1,7 +1,7 @@
 # Finger-User-Enumeration
 Finger User Enumeration is a Python script that allows you to identify users of system through finger protocol.
 
-![image](https://github.com/user-attachments/assets/f2b5f22f-0eec-4eda-8c2f-3c8d28ceeff7)
+[add image here]
 
 ## Requirements
 
@@ -14,6 +14,20 @@ On the repository page, click on the "Code" button located near the top-right co
 
 ```
 git clone https://github.com/dev-angelist/finger_user_enumeration
+```
+
+## Download Wordlist
+
+You can download a usernames wordlist from SecLists:
+
+```
+wget -O names.txt https://raw.githubusercontent.com/danielmiessler/SecLists/master/Usernames/Names/names.txt
+```     
+
+If you're using Kali Linux, the wordlist is already available at this path:
+        
+```
+/usr/share/wordlists/wfuzz/others/names.txt
 ```
 
 
@@ -30,7 +44,7 @@ python3 finger_user_enumeration.py -t <target> -w <wordlist> [-p <port>]
 To display help with available options:
 
 ```
-python3 finger_user_enumeration -help
+python3 finger_user_enumeration -h
 ```
 
 ## Contributing
