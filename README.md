@@ -1,7 +1,7 @@
 # Finger-User-Enumeration
 Finger User Enumeration is a Python script that allows you to identify users of system through finger protocol.
 
-[add image here]
+![image](https://github.com/user-attachments/assets/0869c753-9b99-4977-a216-bdd81264d5ea)
 
 ## Requirements
 
@@ -29,8 +29,6 @@ If you're using Kali Linux, the wordlist is already available at this path:
 ```
 /usr/share/wordlists/wfuzz/others/names.txt
 ```
-
-
 ## Usage
 
 To perform a user enumeration on a target:
@@ -38,6 +36,7 @@ To perform a user enumeration on a target:
 ```
 python3 finger_user_enumeration.py -t <target> -w <wordlist> [-p <port>]
 ```
+[Video del 2024-11-24 20-21-18.webm](https://github.com/user-attachments/assets/efe86211-706f-43eb-be1c-8ce8d79c4e1c)
 
 ### Viewing Help
 
@@ -46,6 +45,7 @@ To display help with available options:
 ```
 python3 finger_user_enumeration -h
 ```
+![image](https://github.com/user-attachments/assets/11c60711-0d1e-4914-9a61-f5fe2b5a8dfd)
 
 ## Contributing
 
@@ -61,17 +61,12 @@ If you wish to contribute to this project, follow these steps:
 
 @dev-angelist ([GitHub profile](https://github.com/dev-angelist)) 
 
-
 ## Legal Disclaimer
 
 Please note that conducting port scanning activities may be illegal in some jurisdictions without proper authorization. Before using this tool, ensure that you have the necessary permissions to perform scanning activities on the target network. Unauthorized port scanning can potentially violate laws and regulations related to computer security and privacy.
 
 It is your responsibility to comply with all applicable laws and regulations in your jurisdiction. The author of this script does not condone or endorse any illegal or unauthorized use of this tool.
 
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
---- 
-
