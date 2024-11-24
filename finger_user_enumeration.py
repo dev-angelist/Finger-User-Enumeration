@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-
 # Author: dev-angelist (https://github.com/dev-angelist)
-# Version: 1.0
 
 import subprocess
 import sys
@@ -10,19 +8,13 @@ import pyfiglet
 from datetime import datetime
 
 # Constants
-default_finger_port = 79  # Default Finger port
-query_timeout = 5  # Timeout for query (in seconds)
+VERSION = 1.0
+AUTHOR = "@dev-angelist"
+DEFAULT_FINGER_PORT = 79  # Default Finger port
 
-# Generate ASCII art banner for "Finger User Enumeration"
-ascii_banner = pyfiglet.figlet_format("Finger User Enumeration", font="slant")
+# Generate ASCII art banner"
+ascii_banner = pyfiglet.figlet_format("    Finger   User      Enumeration", font="slant")
 print(ascii_banner)
-
-def print_section_header(text, char="="):
-    """Function to print section headers with a separator."""
-    separator = char * (len(text) + 4)
-    print(separator)
-    print(f"|  {text}  |")
-    print(separator)
 
 def print_help():
     """Function to print the help message."""
@@ -34,30 +26,35 @@ Options:
     -w <wordlist>  : Path to a wordlist of usernames (e.g., users.txt)
     -p <port>      : Custom port for the finger service (default: 79)
     -h, --help     : Show this help message and exit
-    
+
+Wordlist Info:
+    - You can download a usernames wordlist from SecLists:
+        wget -O names.txt https://raw.githubusercontent.com/danielmiessler/SecLists/master/Usernames/Names/names.txt
+
+    - If you're using Kali Linux, the wordlist is already available at:
+        /usr/share/wordlists/wfuzz/others/names.txt
+
 Example of usage:
     python3 finger_user_enumeration.py -t sunday.htb -w users.txt -p 79
     """)
     print(f"==================================================================================\n")
-def print_scan_info(target, wordlist, port):
-    """Function to print scan information."""
-    # Get current time, removing milliseconds
-    scan_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # Count the number of usernames in the wordlist
+def print_scan_info(target, wordlist, port):
+    scan_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     num_usernames = sum(1 for _ in open(wordlist))
 
-    # Unified print format
-    print(f"===========================================================")
-    print(f"|  Scanning target: {target} on port {port} for {num_usernames} usernames")
-    print(f"|  Scanning started at: {scan_time}")    
-    print(f"===========================================================\n")
-    
+    print(f"   =================================================================================")
+    print(f"  /  Starting finger-user-enum v{VERSION} by {AUTHOR}")
+    print(f" /  https://github.com/dev-angelist/Finger-User-Enumeration")
+    print(f"/  Scanning target: {target} on port {port} for {num_usernames} usernames at: {scan_time}")
+    print(f"====================================================================================\n")
+
 def print_results(valid_users):
     """Function to print the final results."""
     if valid_users:
         for user in valid_users:
             print(f"[+] User found: {user}")
+        print(f"\n[!] {len(valid_users)} Users Found")
     else:
         print("[-] No valid users found.")
 
@@ -79,7 +76,7 @@ def check_valid_user(output):
 
 def main():
     # Default port is 79, can be changed by user input
-    port = default_finger_port
+    port = DEFAULT_FINGER_PORT
 
     # Check if the user requested help
     if "-h" in sys.argv or "--help" in sys.argv:
@@ -116,7 +113,7 @@ def main():
                 valid_users.append(f"{username}@{target}")
 
     # Print results
-    print_results(valid_users)  # Print valid users only once
+    print_results(valid_users)
 
 if __name__ == "__main__":
     main()
