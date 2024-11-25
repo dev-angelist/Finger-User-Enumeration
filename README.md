@@ -36,7 +36,7 @@ To perform a user enumeration on a target:
 ```
 python3 finger_user_enumeration.py -t <target> -w <wordlist> [-p <port>]
 ```
-[Video del 2024-11-24 20-21-18.webm](https://github.com/user-attachments/assets/efe86211-706f-43eb-be1c-8ce8d79c4e1c)
+[Finger_User_Enumeration_Example_Of_Usage.webm](https://github.com/user-attachments/assets/6303cd83-3864-4370-99ea-72474706d656)
 
 ### Viewing Help
 
